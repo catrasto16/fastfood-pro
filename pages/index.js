@@ -169,16 +169,20 @@ export default function Home() {
   }
 
   const sendWhatsApp = async (orderNumber, status) => {
-    try {
-      await fetch('/api/whatsapp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ orderNumber, status })
-      })
-    } catch (error) {
-      console.error('Error WhatsApp:', error)
-    }
+  try {
+    console.log(`📱 WhatsApp SIMULADO:`)
+    console.log(`📞 Para: Cliente Demo`)
+    console.log(`🆔 Pedido: #${orderNumber}`)
+    console.log(`📋 Estado: ${status}`)
+    console.log('💬 Mensaje enviado exitosamente (simulado)')
+    console.log('----------------------------')
+    
+    await new Promise(resolve => setTimeout(resolve, 500))
+    
+  } catch (error) {
+    console.error('Error simulando WhatsApp:', error)
   }
+}
 
   const toggleItemSelection = (item) => {
     const isSelected = selectedItems.some(si => si.id === item.id)
